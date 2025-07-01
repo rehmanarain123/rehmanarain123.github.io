@@ -1,262 +1,45 @@
-<!DOCTYPE html><html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <title>Abdul Rahman's BS Genetics Portal</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
-  <style>
-    :root {
-      --primary: #4A00E0;
-      --secondary: #8E2DE2;
-      --light: #ffffff;
-      --dark: #333333;
-      --card-bg: #f4f4f4;
-    }
-    * {
-      box-sizing: border-box;
-    }
-    body {
-      font-family: 'Roboto', sans-serif;
-      background: linear-gradient(135deg, var(--primary), var(--secondary));
-      color: var(--dark);
-      margin: 0;
-      padding: 0;
-    }
-    header {
-      background-color: var(--light);
-      color: var(--dark);
-      padding: 20px;
-      text-align: center;
-      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-    }
-    header h1 {
-      margin: 0;
-      font-size: 28px;
-    }
-    header p {
-      margin: 5px 0 0;
-      font-size: 14px;
-    }
-    nav {
-      display: flex;
-      justify-content: center;
-      flex-wrap: wrap;
-      background-color: var(--light);
-      border-bottom: 1px solid #ddd;
-      padding: 10px;
-    }
-    nav a {
-      margin: 8px 15px;
-      text-decoration: none;
-      color: var(--primary);
-      font-weight: bold;
-    }
-    .container {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 20px;
-      padding: 30px;
-    }
-    .card {
-      background: var(--card-bg);
-      border-radius: 12px;
-      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
-      padding: 25px;
-      transition: 0.3s ease;
-      position: relative;
-    }
-    .card:hover {
-      transform: translateY(-5px);
-    }
-    .card h2 {
-      margin-top: 0;
-      font-size: 20px;
-      color: var(--primary);
-    }
-    .btn {
-      display: inline-block;
-      margin-top: 10px;
-      padding: 10px 20px;
-      background: var(--primary);
-      color: var(--light);
-      border: none;
-      border-radius: 5px;
-      cursor: pointer;
-      transition: 0.3s ease;
-    }
-    .btn:hover {
-      background: var(--secondary);
-    }
-    .dot-menu {
-      position: absolute;
-      top: 15px;
-      right: 15px;
-      cursor: pointer;
-    }
-    .dot-menu span {
-      display: block;
-      width: 6px;
-      height: 6px;
-      background: #555;
-      margin: 4px;
-      border-radius: 50%;
-    }
-    footer {
-      background-color: var(--light);
-      text-align: center;
-      padding: 12px;
-      font-size: 13px;
-      color: #888;
-      border-top: 1px solid #ddd;
-    }
-    .message-banner {
-      background-color: var(--dark);
-      color: var(--light);
-      padding: 10px;
-      text-align: center;
-      font-size: 14px;
-    }
-    .login {
-      position: absolute;
-      top: 10px;
-      right: 20px;
-      color: var(--primary);
-      font-size: 14px;
-    }
-  </style>
-</head>
-<body><div class="login">🔐 Logged in as: Rehman</div>
-<div class="message-banner">📢 Welcome to Abdul Rahman's Official BS Genetics Portal – Stay updated daily!</div><header>
-  <h1>Abdul Rahman's BS Genetics Portal</h1>
-  <p>2nd Year – Department of BS Genetics | drisherodrisakey@gmail.com</p>
-</header><nav>
-  <a href="#schedule">📅 Schedule</a>
-  <a href="#attendance">🧾 Attendance</a>
-  <a href="#topics">📘 Topics</a>
-  <a href="#notes">📚 Notes</a>
-</nav><div class="container">
-  <div class="card" id="schedule">
-    <div class="dot-menu"><span></span><span></span><span></span></div>
-    <h2>📅 Weekly Schedule (9 AM – 12 PM)</h2>
-    <ul>
-      <li>Monday: Cell Biology</li>
-      <li>Tuesday: Physiology</li>
-      <li>Wednesday: Chemistry</li>
-      <li>Thursday: Philosophy</li>
-      <li>Friday: English</li>
-      <li>Saturday: Ideology & Constitution</li>
-    </ul>
-  </div>  <div class="card" id="attendance">
-    <div class="dot-menu"><span></span><span></span><span></span></div>
-    <h2>🧾 Attendance Tracker</h2>
-    <p>Classes Attended: <strong>0</strong> / <strong>100</strong></p>
-    <button class="btn" onclick="markAttendance()">Mark Today Present</button>
-  </div>  <div class="card" id="topics">
-    <div class="dot-menu"><span></span><span></span><span></span></div>
-    <h2>📘 Study Topic Planner</h2>
-    <p><strong>Today's Topic:</strong> <span id="topic-detail">None</span></p>
-    <button class="btn" onclick="addTopic()">Add Topic</button>
-  </div>  <div class="card" id="notes">
-    <div class="dot-menu"><span></span><span></span><span></span></div>
-    <h2>📚 Uploaded Notes</h2>
-    <p>No notes uploaded yet.</p>
-    <button class="btn">Upload PDF</button>
-  </div>
-</div><footer>
-  &copy; 2025 Abdul Rahman – BS Genetics Portal. All rights reserved.
-</footer><script>
-  let attendanceCount = 0;
-  function markAttendance() {
-    attendanceCount++;
-    document.querySelector('#attendance p').innerHTML = `Classes Attended: <strong>${attendanceCount}</strong> / <strong>100</strong>`;
-    alert("✅ Attendance marked successfully for today!");
-  }
 
-  function addTopic() {
-    const topic = prompt("Enter today's study topic:");
-    if (topic) {
-      document.getElementById('topic-detail').textContent = topic;
-    }
-  }
-</script></body>
-</html>
-<!DOCTYPE html><html lang="en">
+<!DOCTYPE html>
+<html>
 <head>
   <meta charset="UTF-8">
-  <title>Rehman Arain – BS Genetics Portal (Firebase Connected)</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Rehman Student Portal</title>
   <script src="https://www.gstatic.com/firebasejs/9.22.1/firebase-app.js"></script>
   <script src="https://www.gstatic.com/firebasejs/9.22.1/firebase-auth.js"></script>
   <script src="https://www.gstatic.com/firebasejs/9.22.1/firebase-firestore.js"></script>
   <style>
-    body {
-      font-family: 'Poppins', sans-serif;
-      margin: 0;
-      padding: 0;
-      background: linear-gradient(to right, #e0f7fa, #ffffff);
-      color: #333;
-    }
-    header {
-      background-color: #4a148c;
-      color: #fff;
-      text-align: center;
-      padding: 40px 20px;
-    }
-    header h1 {
-      margin: 0;
-      font-size: 32px;
-    }
-    .container {
-      padding: 20px;
-      max-width: 600px;
-      margin: auto;
-    }
-    .card {
-      background: #fff;
-      padding: 20px;
-      border-radius: 10px;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-      margin-bottom: 20px;
-    }
-    .btn {
-      padding: 10px 20px;
-      background-color: #6a1b9a;
-      color: white;
-      border: none;
-      border-radius: 5px;
-      cursor: pointer;
-      margin-top: 10px;
-    }
-    .btn:hover {
-      background-color: #4a148c;
-    }
-    input {
-      padding: 8px;
-      width: 100%;
-      margin-top: 10px;
-      margin-bottom: 10px;
-      border: 1px solid #ccc;
-      border-radius: 5px;
-    }
+    body { font-family: Arial, sans-serif; padding: 20px; background: #f4f6f9; }
+    .card { background: white; padding: 20px; border-radius: 8px; box-shadow: 0 0 10px rgba(0,0,0,0.1); margin-bottom: 20px; }
+    input, button, textarea { padding: 10px; margin-top: 10px; width: 100%; border-radius: 5px; border: 1px solid #ccc; }
+    button { background: #6a1b9a; color: white; font-weight: bold; cursor: pointer; }
+    button:hover { background: #4a148c; }
+    .hidden { display: none; }
   </style>
 </head>
-<body><header>
-  <h1>Welcome Rehman Arain</h1>
-  <p>Firebase Connected Student Portal – BS Genetics, 2nd Year</p>
-</header><div class="container">
-  <div class="card">
-    <h2>Login</h2>
-    <input type="email" id="email" placeholder="Email">
-    <input type="password" id="password" placeholder="Password">
-    <button class="btn" onclick="loginUser()">Login</button>
-    <p id="login-status"></p>
-  </div>  <div class="card" id="dashboard" style="display:none;">
-    <h2>Attendance</h2>
-    <button class="btn" onclick="markAttendance()">Mark Present</button>
-    <p id="attend-status">Not marked yet.</p>
-  </div>
-</div><script>
-  // Firebase config
+<body>
+
+<h1>Rehman Student Portal</h1>
+
+<div id="login" class="card">
+  <h2>Login</h2>
+  <input type="email" id="email" placeholder="Email">
+  <input type="password" id="password" placeholder="Password">
+  <button onclick="login()">Login</button>
+  <p id="loginMsg"></p>
+</div>
+
+<div id="dashboard" class="card hidden">
+  <h2>Welcome!</h2>
+
+  <button onclick="markAttendance()">📅 Mark Attendance</button>
+  <p id="attStatus"></p>
+
+  <textarea id="topicInput" placeholder="Enter today's topic..."></textarea>
+  <button onclick="saveTopic()">💾 Save Topic</button>
+  <p id="topicStatus"></p>
+</div>
+
+<script>
   const firebaseConfig = {
     apiKey: "AIzaSyDH-XeQ54m9HyRRLh7ruhm3KTi5bH5b2PQ",
     authDomain: "rehman-project.firebaseapp.com",
@@ -266,533 +49,55 @@
     appId: "1:123456789:web:abc123xyz"
   };
 
-  // Initialize Firebase
   const app = firebase.initializeApp(firebaseConfig);
   const auth = firebase.auth();
   const db = firebase.firestore();
 
-  function loginUser() {
-    const email = document.getElementById('email').value;
-    const password = document.getElementById('password').value;
-    auth.signInWithEmailAndPassword(email, password)
+  function login() {
+    const email = document.getElementById("email").value;
+    const pass = document.getElementById("password").value;
+    auth.signInWithEmailAndPassword(email, pass)
       .then(() => {
-        document.getElementById('login-status').textContent = "Login successful ✅";
-        document.getElementById('dashboard').style.display = "block";
+        document.getElementById("login").classList.add("hidden");
+        document.getElementById("dashboard").classList.remove("hidden");
+        document.getElementById("loginMsg").innerText = "";
       })
-      .catch(error => {
-        document.getElementById('login-status').textContent = error.message;
+      .catch(e => {
+        document.getElementById("loginMsg").innerText = e.message;
       });
   }
 
   function markAttendance() {
+    const date = new Date().toLocaleDateString();
     const user = auth.currentUser;
     if (user) {
-      const date = new Date().toLocaleDateString();
       db.collection("attendance").add({
         uid: user.uid,
         email: user.email,
         date: date,
         present: true
-      })
-      .then(() => {
-        document.getElementById('attend-status').textContent = `Marked present on ${date}`;
-      })
-      .catch((error) => {
-        document.getElementById('attend-status').textContent = error.message;
+      }).then(() => {
+        document.getElementById("attStatus").innerText = `✅ Marked present on ${date}`;
       });
     }
   }
-</script></body>
-</html><!DOCTYPE html><html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <title>Rehman Arain – BS Genetics Portal (Firebase Connected)</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <script src="https://www.gstatic.com/firebasejs/9.22.1/firebase-app.js"></script>
-  <script src="https://www.gstatic.com/firebasejs/9.22.1/firebase-auth.js"></script>
-  <script src="https://www.gstatic.com/firebasejs/9.22.1/firebase-firestore.js"></script>
-  <style>
-    body {
-      font-family: 'Poppins', sans-serif;
-      margin: 0;
-      padding: 0;
-      background: linear-gradient(to right, #e0f7fa, #ffffff);
-      color: #333;
-    }
-    header {
-      background-color: #4a148c;
-      color: #fff;
-      text-align: center;
-      padding: 40px 20px;
-    }
-    header h1 {
-      margin: 0;
-      font-size: 32px;
-    }
-    .container {
-      padding: 20px;
-      max-width: 600px;
-      margin: auto;
-    }
-    .card {
-      background: #fff;
-      padding: 20px;
-      border-radius: 10px;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-      margin-bottom: 20px;
-    }
-    .btn {
-      padding: 10px 20px;
-      background-color: #6a1b9a;
-      color: white;
-      border: none;
-      border-radius: 5px;
-      cursor: pointer;
-      margin-top: 10px;
-    }
-    .btn:hover {
-      background-color: #4a148c;
-    }
-    input {
-      padding: 8px;
-      width: 100%;
-      margin-top: 10px;
-      margin-bottom: 10px;
-      border: 1px solid #ccc;
-      border-radius: 5px;
-    }
-  </style>
-</head>
-<body><header>
-  <h1>Welcome Rehman Arain</h1>
-  <p>Firebase Connected Student Portal – BS Genetics, 2nd Year</p>
-</header><div class="container">
-  <div class="card">
-    <h2>Login</h2>
-    <input type="email" id="email" placeholder="Email">
-    <input type="password" id="password" placeholder="Password">
-    <button class="btn" onclick="loginUser()">Login</button>
-    <p id="login-status"></p>
-  </div>  <div class="card" id="dashboard" style="display:none;">
-    <h2>Attendance</h2>
-    <button class="btn" onclick="markAttendance()">Mark Present</button>
-    <p id="attend-status">Not marked yet.</p>
-  </div>
-</div><script>
-  // Firebase config
-  const firebaseConfig = {
-    apiKey: "AIzaSyDH-XeQ54m9HyRRLh7ruhm3KTi5bH5b2PQ",
-    authDomain: "rehman-project.firebaseapp.com",
-    projectId: "rehman-project",
-    storageBucket: "rehman-project.appspot.com",
-    messagingSenderId: "123456789",
-    appId: "1:123456789:web:abc123xyz"
-  };
 
-  // Initialize Firebase
-  const app = firebase.initializeApp(firebaseConfig);
-  const auth = firebase.auth();
-  const db = firebase.firestore();
-
-  function loginUser() {
-    const email = document.getElementById('email').value;
-    const password = document.getElementById('password').value;
-    auth.signInWithEmailAndPassword(email, password)
-      .then(() => {
-        document.getElementById('login-status').textContent = "Login successful ✅";
-        document.getElementById('dashboard').style.display = "block";
-      })
-      .catch(error => {
-        document.getElementById('login-status').textContent = error.message;
-      });
-  }
-
-  function markAttendance() {
+  function saveTopic() {
+    const topic = document.getElementById("topicInput").value;
     const user = auth.currentUser;
-    if (user) {
-      const date = new Date().toLocaleDateString();
-      db.collection("attendance").add({
+    const date = new Date().toLocaleDateString();
+    if (user && topic) {
+      db.collection("topics").add({
         uid: user.uid,
         email: user.email,
         date: date,
-        present: true
-      })
-      .then(() => {
-        document.getElementById('attend-status').textContent = `Marked present on ${date}`;
-      })
-      .catch((error) => {
-        document.getElementById('attend-status').textContent = error.message;
+        topic: topic
+      }).then(() => {
+        document.getElementById("topicStatus").innerText = `✅ Topic saved`;
       });
     }
   }
-</script></body>
-</html><!DOCTYPE html><html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <title>Rehman Arain – BS Genetics Portal (Firebase Connected)</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <script src="https://www.gstatic.com/firebasejs/9.22.1/firebase-app.js"></script>
-  <script src="https://www.gstatic.com/firebasejs/9.22.1/firebase-auth.js"></script>
-  <script src="https://www.gstatic.com/firebasejs/9.22.1/firebase-firestore.js"></script>
-  <style>
-    body {
-      font-family: 'Poppins', sans-serif;
-      margin: 0;
-      padding: 0;
-      background: linear-gradient(to right, #e0f7fa, #ffffff);
-      color: #333;
-    }
-    header {
-      background-color: #4a148c;
-      color: #fff;
-      text-align: center;
-      padding: 40px 20px;
-    }
-    header h1 {
-      margin: 0;
-      font-size: 32px;
-    }
-    .container {
-      padding: 20px;
-      max-width: 600px;
-      margin: auto;
-    }
-    .card {
-      background: #fff;
-      padding: 20px;
-      border-radius: 10px;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-      margin-bottom: 20px;
-    }
-    .btn {
-      padding: 10px 20px;
-      background-color: #6a1b9a;
-      color: white;
-      border: none;
-      border-radius: 5px;
-      cursor: pointer;
-      margin-top: 10px;
-    }
-    .btn:hover {
-      background-color: #4a148c;
-    }
-    input {
-      padding: 8px;
-      width: 100%;
-      margin-top: 10px;
-      margin-bottom: 10px;
-      border: 1px solid #ccc;
-      border-radius: 5px;
-    }
-  </style>
-</head>
-<body><header>
-  <h1>Welcome Rehman Arain</h1>
-  <p>Firebase Connected Student Portal – BS Genetics, 2nd Year</p>
-</header><div class="container">
-  <div class="card">
-    <h2>Login</h2>
-    <input type="email" id="email" placeholder="Email">
-    <input type="password" id="password" placeholder="Password">
-    <button class="btn" onclick="loginUser()">Login</button>
-    <p id="login-status"></p>
-  </div>  <div class="card" id="dashboard" style="display:none;">
-    <h2>Attendance</h2>
-    <button class="btn" onclick="markAttendance()">Mark Present</button>
-    <p id="attend-status">Not marked yet.</p>
-  </div>
-</div><script>
-  // Firebase config
-  const firebaseConfig = {
-    apiKey: "AIzaSyDH-XeQ54m9HyRRLh7ruhm3KTi5bH5b2PQ",
-    authDomain: "rehman-project.firebaseapp.com",
-    projectId: "rehman-project",
-    storageBucket: "rehman-project.appspot.com",
-    messagingSenderId: "123456789",
-    appId: "1:123456789:web:abc123xyz"
-  };
+</script>
 
-  // Initialize Firebase
-  const app = firebase.initializeApp(firebaseConfig);
-  const auth = firebase.auth();
-  const db = firebase.firestore();
-
-  function loginUser() {
-    const email = document.getElementById('email').value;
-    const password = document.getElementById('password').value;
-    auth.signInWithEmailAndPassword(email, password)
-      .then(() => {
-        document.getElementById('login-status').textContent = "Login successful ✅";
-        document.getElementById('dashboard').style.display = "block";
-      })
-      .catch(error => {
-        document.getElementById('login-status').textContent = error.message;
-      });
-  }
-
-  function markAttendance() {
-    const user = auth.currentUser;
-    if (user) {
-      const date = new Date().toLocaleDateString();
-      db.collection("attendance").add({
-        uid: user.uid,
-        email: user.email,
-        date: date,
-        present: true
-      })
-      .then(() => {
-        document.getElementById('attend-status').textContent = `Marked present on ${date}`;
-      })
-      .catch((error) => {
-        document.getElementById('attend-status').textContent = error.message;
-      });
-    }
-  }
-</script></body>
-</html><!DOCTYPE html><html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <title>Rehman Arain – BS Genetics Portal (Firebase Connected)</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <script src="https://www.gstatic.com/firebasejs/9.22.1/firebase-app.js"></script>
-  <script src="https://www.gstatic.com/firebasejs/9.22.1/firebase-auth.js"></script>
-  <script src="https://www.gstatic.com/firebasejs/9.22.1/firebase-firestore.js"></script>
-  <style>
-    body {
-      font-family: 'Poppins', sans-serif;
-      margin: 0;
-      padding: 0;
-      background: linear-gradient(to right, #e0f7fa, #ffffff);
-      color: #333;
-    }
-    header {
-      background-color: #4a148c;
-      color: #fff;
-      text-align: center;
-      padding: 40px 20px;
-    }
-    header h1 {
-      margin: 0;
-      font-size: 32px;
-    }
-    .container {
-      padding: 20px;
-      max-width: 600px;
-      margin: auto;
-    }
-    .card {
-      background: #fff;
-      padding: 20px;
-      border-radius: 10px;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-      margin-bottom: 20px;
-    }
-    .btn {
-      padding: 10px 20px;
-      background-color: #6a1b9a;
-      color: white;
-      border: none;
-      border-radius: 5px;
-      cursor: pointer;
-      margin-top: 10px;
-    }
-    .btn:hover {
-      background-color: #4a148c;
-    }
-    input {
-      padding: 8px;
-      width: 100%;
-      margin-top: 10px;
-      margin-bottom: 10px;
-      border: 1px solid #ccc;
-      border-radius: 5px;
-    }
-  </style>
-</head>
-<body><header>
-  <h1>Welcome Rehman Arain</h1>
-  <p>Firebase Connected Student Portal – BS Genetics, 2nd Year</p>
-</header><div class="container">
-  <div class="card">
-    <h2>Login</h2>
-    <input type="email" id="email" placeholder="Email">
-    <input type="password" id="password" placeholder="Password">
-    <button class="btn" onclick="loginUser()">Login</button>
-    <p id="login-status"></p>
-  </div>  <div class="card" id="dashboard" style="display:none;">
-    <h2>Attendance</h2>
-    <button class="btn" onclick="markAttendance()">Mark Present</button>
-    <p id="attend-status">Not marked yet.</p>
-  </div>
-</div><script>
-  // Firebase config
-  const firebaseConfig = {
-    apiKey: "AIzaSyDH-XeQ54m9HyRRLh7ruhm3KTi5bH5b2PQ",
-    authDomain: "rehman-project.firebaseapp.com",
-    projectId: "rehman-project",
-    storageBucket: "rehman-project.appspot.com",
-    messagingSenderId: "123456789",
-    appId: "1:123456789:web:abc123xyz"
-  };
-
-  // Initialize Firebase
-  const app = firebase.initializeApp(firebaseConfig);
-  const auth = firebase.auth();
-  const db = firebase.firestore();
-
-  function loginUser() {
-    const email = document.getElementById('email').value;
-    const password = document.getElementById('password').value;
-    auth.signInWithEmailAndPassword(email, password)
-      .then(() => {
-        document.getElementById('login-status').textContent = "Login successful ✅";
-        document.getElementById('dashboard').style.display = "block";
-      })
-      .catch(error => {
-        document.getElementById('login-status').textContent = error.message;
-      });
-  }
-
-  function markAttendance() {
-    const user = auth.currentUser;
-    if (user) {
-      const date = new Date().toLocaleDateString();
-      db.collection("attendance").add({
-        uid: user.uid,
-        email: user.email,
-        date: date,
-        present: true
-      })
-      .then(() => {
-        document.getElementById('attend-status').textContent = `Marked present on ${date}`;
-      })
-      .catch((error) => {
-        document.getElementById('attend-status').textContent = error.message;
-      });
-    }
-  }
-</script></body>
-</html><!DOCTYPE html><html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <title>Rehman Arain – BS Genetics Portal (Firebase Connected)</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <script src="https://www.gstatic.com/firebasejs/9.22.1/firebase-app.js"></script>
-  <script src="https://www.gstatic.com/firebasejs/9.22.1/firebase-auth.js"></script>
-  <script src="https://www.gstatic.com/firebasejs/9.22.1/firebase-firestore.js"></script>
-  <style>
-    body {
-      font-family: 'Poppins', sans-serif;
-      margin: 0;
-      padding: 0;
-      background: linear-gradient(to right, #e0f7fa, #ffffff);
-      color: #333;
-    }
-    header {
-      background-color: #4a148c;
-      color: #fff;
-      text-align: center;
-      padding: 40px 20px;
-    }
-    header h1 {
-      margin: 0;
-      font-size: 32px;
-    }
-    .container {
-      padding: 20px;
-      max-width: 600px;
-      margin: auto;
-    }
-    .card {
-      background: #fff;
-      padding: 20px;
-      border-radius: 10px;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-      margin-bottom: 20px;
-    }
-    .btn {
-      padding: 10px 20px;
-      background-color: #6a1b9a;
-      color: white;
-      border: none;
-      border-radius: 5px;
-      cursor: pointer;
-      margin-top: 10px;
-    }
-    .btn:hover {
-      background-color: #4a148c;
-    }
-    input {
-      padding: 8px;
-      width: 100%;
-      margin-top: 10px;
-      margin-bottom: 10px;
-      border: 1px solid #ccc;
-      border-radius: 5px;
-    }
-  </style>
-</head>
-<body><header>
-  <h1>Welcome Rehman Arain</h1>
-  <p>Firebase Connected Student Portal – BS Genetics, 2nd Year</p>
-</header><div class="container">
-  <div class="card">
-    <h2>Login</h2>
-    <input type="email" id="email" placeholder="Email">
-    <input type="password" id="password" placeholder="Password">
-    <button class="btn" onclick="loginUser()">Login</button>
-    <p id="login-status"></p>
-  </div>  <div class="card" id="dashboard" style="display:none;">
-    <h2>Attendance</h2>
-    <button class="btn" onclick="markAttendance()">Mark Present</button>
-    <p id="attend-status">Not marked yet.</p>
-  </div>
-</div><script>
-  // Firebase config
-  const firebaseConfig = {
-    apiKey: "AIzaSyDH-XeQ54m9HyRRLh7ruhm3KTi5bH5b2PQ",
-    authDomain: "rehman-project.firebaseapp.com",
-    projectId: "rehman-project",
-    storageBucket: "rehman-project.appspot.com",
-    messagingSenderId: "123456789",
-    appId: "1:123456789:web:abc123xyz"
-  };
-
-  // Initialize Firebase
-  const app = firebase.initializeApp(firebaseConfig);
-  const auth = firebase.auth();
-  const db = firebase.firestore();
-
-  function loginUser() {
-    const email = document.getElementById('email').value;
-    const password = document.getElementById('password').value;
-    auth.signInWithEmailAndPassword(email, password)
-      .then(() => {
-        document.getElementById('login-status').textContent = "Login successful ✅";
-        document.getElementById('dashboard').style.display = "block";
-      })
-      .catch(error => {
-        document.getElementById('login-status').textContent = error.message;
-      });
-  }
-
-  function markAttendance() {
-    const user = auth.currentUser;
-    if (user) {
-      const date = new Date().toLocaleDateString();
-      db.collection("attendance").add({
-        uid: user.uid,
-        email: user.email,
-        date: date,
-        present: true
-      })
-      .then(() => {
-        document.getElementById('attend-status').textContent = `Marked present on ${date}`;
-      })
-      .catch((error) => {
-        document.getElementById('attend-status').textContent = error.message;
-      });
-    }
-  }
-</script></body>
+</body>
 </html>
