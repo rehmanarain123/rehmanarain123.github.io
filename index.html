@@ -101,3 +101,114 @@
 
 </body>
 </html>
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Rehman Student Portal</title>
+  <script src="https://www.gstatic.com/firebasejs/9.22.1/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.22.1/firebase-auth.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.22.1/firebase-firestore.js"></script>
+  <style>
+    body { font-family: Arial, sans-serif; padding: 20px; background: #f4f6f9; }
+    .card { background: white; padding: 20px; border-radius: 8px; box-shadow: 0 0 10px rgba(0,0,0,0.1); margin-bottom: 20px; }
+    input, button, textarea { padding: 10px; margin-top: 10px; width: 100%; border-radius: 5px; border: 1px solid #ccc; }
+    button { background: #6a1b9a; color: white; font-weight: bold; cursor: pointer; }
+    button:hover { background: #4a148c; }
+    .hidden { display: none; }
+  </style>
+</head>
+<body>
+
+<h1>Rehman Student Portal</h1>
+
+<div id="login" class="card">
+  <h2>Login</h2>
+  <input type="email" id="email" placeholder="Email">
+  <input type="password" id="password" placeholder="Password">
+  <button onclick="login()">Login</button>
+  <p id="loginMsg"></p>
+</div>
+
+<div id="dashboard" class="card hidden">
+  <h2>Welcome, <span id="userEmail"></span>!</h2>
+
+  <button onclick="markAttendance()">📅 Mark Attendance</button>
+  <p id="attStatus"></p>
+
+  <textarea id="topicInput" placeholder="Enter today's topic..."></textarea>
+  <button onclick="saveTopic()">💾 Save Topic</button>
+  <p id="topicStatus"></p>
+</div>
+
+<script>
+  const firebaseConfig = {
+    apiKey: "AIzaSyDH-XeQ54m9HyRRLh7ruhm3KTi5bH5b2PQ",
+    authDomain: "rehman-project.firebaseapp.com",
+    projectId: "rehman-project",
+    storageBucket: "rehman-project.appspot.com",
+    messagingSenderId: "123456789",
+    appId: "1:123456789:web:abc123xyz"
+  };
+
+  const app = firebase.initializeApp(firebaseConfig);
+  const auth = firebase.auth();
+  const db = firebase.firestore();
+
+  function login() {
+    const email = document.getElementById("email").value;
+    const pass = document.getElementById("password").value;
+    auth.signInWithEmailAndPassword(email, pass)
+      .then(() => {
+        const user = auth.currentUser;
+        if (user) {
+          document.getElementById("login").classList.add("hidden");
+          document.getElementById("dashboard").classList.remove("hidden");
+          document.getElementById("userEmail").textContent = user.email;
+        }
+      })
+      .catch(e => {
+        document.getElementById("loginMsg").innerText = "❌ " + e.message;
+      });
+  }
+
+  function markAttendance() {
+    const date = new Date().toLocaleDateString();
+    const user = auth.currentUser;
+    if (user) {
+      db.collection("attendance").add({
+        uid: user.uid,
+        email: user.email,
+        date: date,
+        present: true
+      }).then(() => {
+        document.getElementById("attStatus").innerText = `✅ Marked present on ${date}`;
+      }).catch(err => {
+        document.getElementById("attStatus").innerText = `❌ ${err.message}`;
+      });
+    }
+  }
+
+  function saveTopic() {
+    const topic = document.getElementById("topicInput").value;
+    const user = auth.currentUser;
+    const date = new Date().toLocaleDateString();
+    if (user && topic.trim() !== "") {
+      db.collection("topics").add({
+        uid: user.uid,
+        email: user.email,
+        date: date,
+        topic: topic
+      }).then(() => {
+        document.getElementById("topicStatus").innerText = `✅ Topic saved successfully`;
+      }).catch(err => {
+        document.getElementById("topicStatus").innerText = `❌ ${err.message}`;
+      });
+    } else {
+      document.getElementById("topicStatus").innerText = "❌ Please enter a topic.";
+    }
+  }
+</script>
+
+</body>
+</html>
